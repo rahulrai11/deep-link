@@ -14,7 +14,7 @@
     "web-vitals": "^2.1.4"
   },
 
-  "homepage": "https://rahulrai11/deep-link",
+  "homepage": "https://rahulrai11.github.io/deep-link/",
 
   "scripts": {
     "start": "react-scripts start",
