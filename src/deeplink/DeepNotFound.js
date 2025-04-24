@@ -56,8 +56,6 @@ function DeepNotFound() {
                         }
                     });
                 }
-
-                // Usage
                 redirectToApp()
                     .then(message => {
                         isRedirect = true;
@@ -82,6 +80,7 @@ function DeepNotFound() {
                             window.location.replace(appStoreURL);
                         }
                     } else {
+                        // alert("AAAAAAAAAAA")
                         console.log("App opened successfully, stopping script.");
                     }
                 }, 5000); // Increased timeout for better user interaction detection

@@ -4,6 +4,8 @@ import { Navigate, Route, Routes, useNavigate, useLocation, BrowserRouter, HashR
 import DeepNotFound from './deeplink/DeepNotFound';
 import HTMLPage from './deeplink/HTMLPage';
 import Onbording from './Onbording';
+import ErrorBoundary from './ErrorBoundary'
+
 function App() {
   return (
     // <div className="App">
@@ -23,13 +25,16 @@ function App() {
     //   </header>
     // </div>
     <>
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<Onbording />} />
-          <Route path="/app" element={<HTMLPage />} />
-          <Route path="/app/*" element={<DeepNotFound />} />
-        </Routes>
-      </HashRouter>;
+      <ErrorBoundary >
+
+        <HashRouter >
+          <Routes>
+            <Route path="/" element={<Onbording />} />
+            <Route path="/app" element={<HTMLPage />} />
+            <Route path="/app/*" element={<DeepNotFound />} />
+          </Routes>
+        </HashRouter>
+      </ErrorBoundary>
 
     </>
 
