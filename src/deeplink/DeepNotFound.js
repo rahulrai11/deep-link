@@ -46,6 +46,7 @@ function DeepNotFound() {
             iframe.src = customURL;
             document.body.appendChild(iframe);
 
+            return
             // Set a fallback redirection ONLY if the app does not open
             fallbackTimeout = setTimeout(() => {
                 if (!appOpened) {
@@ -64,8 +65,23 @@ function DeepNotFound() {
         openApp();
     }, []);
 
+    const deep = () => {
+        const playStoreURL = "https://play.google.com/store/apps/details?id=com.bastianqrapp";
+        const appStoreURL = "https://apps.apple.com/in/app/bastian-customer-parts-portal/id6473263265";
+
+        const userAgent = navigator.userAgent;
+        const isAndroid = /Android/i.test(userAgent);
+        const isiOS = /iPhone|iPad|iPod/i.test(userAgent);
+
+        if (isAndroid) {
+            window.location.replace(playStoreURL);
+        } else if (isiOS) {
+            window.location.replace(appStoreURL);
+        }
+    }
     return (
         <div>
+            <button onClick={deep}>go to app store</button>
             <p>
                 If Bastian is installed, it will open automatically. Otherwise, you'll be redirected to download it shortly.
             </p>
