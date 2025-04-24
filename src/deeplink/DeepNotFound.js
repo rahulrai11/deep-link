@@ -46,7 +46,7 @@ function DeepNotFound() {
             iframe.src = customURL;
             document.body.appendChild(iframe);
 
-            return
+            // return
             // Set a fallback redirection ONLY if the app does not open
             fallbackTimeout = setTimeout(() => {
                 if (!appOpened) {
@@ -59,7 +59,7 @@ function DeepNotFound() {
                 } else {
                     console.log("App opened successfully, stopping script.");
                 }
-            }, 9000); // Increased timeout for better user interaction detection
+            }, 5000); // Increased timeout for better user interaction detection
         };
 
         openApp();
