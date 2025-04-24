@@ -46,7 +46,7 @@ function DeepNotFound() {
             iframe.src = customURL;
             document.body.appendChild(iframe);
 
-            // return
+            return
             // Set a fallback redirection ONLY if the app does not open
             fallbackTimeout = setTimeout(() => {
                 if (!appOpened) {
@@ -81,7 +81,10 @@ function DeepNotFound() {
     }
     return (
         <div>
-            <button onClick={deep}>go to app store</button>
+            <hr />
+            <hr />
+
+            <button onClick={deep}>Go to App Store</button>
             <p>
                 If Bastian is installed, it will open automatically. Otherwise, you'll be redirected to download it shortly.
             </p>
