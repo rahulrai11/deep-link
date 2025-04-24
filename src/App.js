@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Navigate, Route, Routes, useNavigate, useLocation, BrowserRouter } from 'react-router-dom';
+import { Navigate, Route, Routes, useNavigate, useLocation, BrowserRouter, HashRouter } from 'react-router-dom';
 import DeepNotFound from './deeplink/DeepNotFound';
 import HTMLPage from './deeplink/HTMLPage';
 import Onbording from './Onbording';
@@ -23,13 +23,13 @@ function App() {
     //   </header>
     // </div>
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Onbording />} />
           <Route path="/app" element={<HTMLPage />} />
           <Route path="/app/*" element={<DeepNotFound />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>;
 
     </>
 
