@@ -27,13 +27,15 @@
     <title>React App</title>
 
     <script>
-      var pathSegmentsToKeep = 0;
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/' + l.pathname.split('/').slice(pathSegmentsToKeep).join('/')
-      );
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
     </script>
-
+    
 
   </head>
   <body>
