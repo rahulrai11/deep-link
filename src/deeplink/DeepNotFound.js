@@ -4,7 +4,6 @@ function DeepNotFound() {
     useEffect(() => {
         const openApp = () => {
 
-            try {
                 const path = window.location.pathname;
                 const customURL = "myapp://" + path.replace(/^\/+/, ''); // Ensure clean path
 
@@ -19,6 +18,10 @@ function DeepNotFound() {
                 let isRedirect = false;
                 let fallbackTimeout;
 
+               
+
+
+                try {
 
                 function stopRedirect() {
                     console.log("App detected as opened, stopping redirect.");
@@ -68,6 +71,18 @@ function DeepNotFound() {
                 iframe.style.display = "none";
                 iframe.src = customURL;
                 document.body.appendChild(iframe);
+
+
+                try {
+                    const validURL = new URL(customURL, window.location.origin);
+                    console.log('Valid URL:', validURL.href);
+                    alert("try...")
+                    // Use validURL.href in your application
+                  } catch (error) {
+                    alert("catch")
+                    console.error('Invalid URL:', error);
+                    // Handle the error, perhaps by displaying a user-friendly message or logging it
+                  }
 
                 // return
                 // Set a fallback redirection ONLY if the app does not open

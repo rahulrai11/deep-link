@@ -19,7 +19,7 @@ class ErrorBoundary extends React.Component {
   }
 
   componentDidMount(){
-    alert("first")    
+    // alert("first")    
   }
   render() {
     
