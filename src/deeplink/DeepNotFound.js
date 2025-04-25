@@ -69,7 +69,14 @@ function DeepNotFound() {
             // }, 5000); // Increased timeout for better user interaction detection
         };
 
-        openApp();
+        try {
+            openApp();
+
+        } catch (error) {
+            console.log("error...", error);
+            alert("EEE")
+
+        }
 
         return () => {
             setIsApp(false);
