@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 
 function DeepNotFound() {
-    const [isApp, setIsApp] = useState(true);
 
     useEffect(() => {
         const openApp = () => {
@@ -39,18 +38,14 @@ function DeepNotFound() {
             document.addEventListener("click", stopRedirect);
             document.addEventListener("touchstart", stopRedirect);
 
-            try {
-                // Attempt direct navigation
-                window.location.href = customURL;
+            // Attempt direct navigation
+            window.location.href = customURL;
 
-                // Alternative iframe method for better reliability
-                let iframe = document.createElement("iframe");
-                iframe.style.display = "none";
-                iframe.src = customURL;
-                document.body.appendChild(iframe);
-            } catch (error) {
-                console.error("Deep link failed:", error);
-            }
+            // Alternative iframe method for better reliability
+            let iframe = document.createElement("iframe");
+            iframe.style.display = "none";
+            iframe.src = customURL;
+            document.body.appendChild(iframe);
 
             if (isAndroid) {
                 fallbackTimeout = setTimeout(() => {
@@ -61,31 +56,10 @@ function DeepNotFound() {
                     }
                 }, 800); // Increased timeout for better user interaction detection
             }
-
-            // Set a fallback redirection ONLY if the app does not open
-            // fallbackTimeout = setTimeout(() => {
-            // if (!appOpened) {
-            // console.log("App not detected, redirecting to store.");
-            // if (isAndroid) {
-            //     window.location.replace(playStoreURL);
-            // } else if (isiOS) {
-            //     window.location.replace(appStoreURL);
-            // }
-            // } else {
-            // console.log("App opened successfully, stopping script.");
-            // }
-            // }, 5000); // Increased timeout for better user interaction detection
         };
 
-        try {
-            openApp();
-        } catch (error) {
-            console.log("error...", error);
-        }
+        openApp();
 
-        return () => {
-            setIsApp(false);
-        }
     }, []);
 
     const deep = () => {
@@ -124,15 +98,17 @@ function DeepNotFound() {
                     just hit the store and start your journey
                 </a>
             </p>
-
+            
             <ReactPlayer
                 className='react-player'
                 playing={true}
                 loop
                 muted
+                playsInline={true} // Ensures proper playback on iOS Safari
                 url='https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4'
                 width='100%'
             />
+
         </div>
     );
 }
