@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 function DeepNotFound() {
 
-    const [isApp, setIsApp] = useState(false);
+    const [isApp, setIsApp] = useState(true);
     const path = window.location.pathname;
     const customURL = "myapp://" + path.replace(/^\/+/, ''); // Ensure clean path
 
