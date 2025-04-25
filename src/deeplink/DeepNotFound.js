@@ -113,19 +113,16 @@ function DeepNotFound() {
             height: "100vh",
             textAlign: "center"
         }}>
-            <a
-                href="#"
-                onClick={(event) => {
-                    event.preventDefault(); // Prevent default navigation
-                    deep(); // Call the function when clicked
-                }}
-                style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer", textDecoration: "underline", color: "blue" }}
-            >
-                Go to Store for Downloading
-            </a>
-
             <p style={{ marginTop: "10px", fontSize: "18px", width: "80%" }}>
-                Off we go! If Bastian already chilling on your device, we'll take you there. If not, no worries—we'll zip you to the store in a flash!.
+                Off we go! If Bastian’s already chilling on your device, we’ll take you there.
+                If not, <a href="#"
+                    onClick={(event) => {
+                        event.preventDefault(); // Prevent default navigation
+                        deep(); // Call the function when clicked
+                    }}
+                    style={{ textDecoration: "underline", color: "blue" }}>
+                    just hit the store and start your journey
+                </a>
             </p>
 
             <ReactPlayer
