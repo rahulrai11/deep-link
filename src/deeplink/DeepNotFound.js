@@ -20,13 +20,13 @@ function DeepNotFound() {
             const isAndroid = /Android/i.test(userAgent);
             const isiOS = /iPhone|iPad|iPod/i.test(userAgent);
 
-            // let appOpened = false;
-            // let fallbackTimeout;
+            let appOpened = false;
+            let fallbackTimeout;
 
             function stopRedirect() {
                 console.log("App detected as opened, stopping redirect.");
-                // appOpened = true;
-                // clearTimeout(fallbackTimeout);
+                appOpened = true;
+                clearTimeout(fallbackTimeout);
                 window.removeEventListener("visibilitychange", handleVisibilityChange);
                 document.removeEventListener("click", stopRedirect);
                 document.removeEventListener("touchstart", stopRedirect);
@@ -55,6 +55,16 @@ function DeepNotFound() {
                 console.error("Deep link failed:", error);
             }
 
+            if (isAndroid) {
+                fallbackTimeout = setTimeout(() => {
+                    if (!appOpened) {
+                        window.location.replace(playStoreURL);
+                    } else {
+                        console.log("App opened successfully, stopping script.");
+                    }
+                }, 1500); // Increased timeout for better user interaction detection
+            }
+
             // Set a fallback redirection ONLY if the app does not open
             // fallbackTimeout = setTimeout(() => {
             // if (!appOpened) {
@@ -72,11 +82,8 @@ function DeepNotFound() {
 
         try {
             openApp();
-
         } catch (error) {
             console.log("error...", error);
-            alert("EEE")
-
         }
 
         return () => {
