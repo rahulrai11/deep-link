@@ -110,14 +110,13 @@ function DeepNotFound() {
             /> */}
 
             <ReactPlayer
-                className="react-player"
+                className='react-player'
                 playing={true}
                 loop
                 muted
-                playsInline={true}
-                controls={true} // Allows users to manually start the video if autoplay fails
-                url="https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4"
-                width="100%"
+                playsInline={true} // Ensures proper playback on iOS Safari
+                url='https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4'
+                width='100%'
             />
 
         </div>
