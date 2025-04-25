@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 
 function DeepNotFound() {
-
     const [isApp, setIsApp] = useState(true);
-    // const path = window.location.pathname;
-    // const customURL = "myapp://" + path.replace(/^\/+/, ''); // Ensure clean path
 
     useEffect(() => {
         const openApp = () => {
@@ -62,7 +59,7 @@ function DeepNotFound() {
                     } else {
                         console.log("App opened successfully, stopping script.");
                     }
-                }, 1500); // Increased timeout for better user interaction detection
+                }, 800); // Increased timeout for better user interaction detection
             }
 
             // Set a fallback redirection ONLY if the app does not open
@@ -105,9 +102,8 @@ function DeepNotFound() {
         } else if (isiOS) {
             window.location.replace(appStoreURL);
         }
-
-        // setIsApp(false);
     }
+
     return (
         <div style={{
             display: "flex",
@@ -117,8 +113,6 @@ function DeepNotFound() {
             height: "100vh",
             textAlign: "center"
         }}>
-            {/* <hr style={{ width: "50%" }} /> */}
-            {/* <button onClick={deep} style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}>Go to Store for dowanloading</button> */}
             <a
                 href="#"
                 onClick={(event) => {
