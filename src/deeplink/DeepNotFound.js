@@ -81,8 +81,8 @@ function DeepNotFound() {
 
         function stopRedirect() {
             console.log("App detected as opened, stopping redirect.");
-            appOpened = true;
-            clearTimeout(fallbackTimeout);
+            // appOpened = true;
+            // clearTimeout(fallbackTimeout);
             window.removeEventListener("visibilitychange", handleVisibilityChange);
             document.removeEventListener("click", stopRedirect);
             document.removeEventListener("touchstart", stopRedirect);
