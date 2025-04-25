@@ -98,8 +98,8 @@ function DeepNotFound() {
                     just hit the store and start your journey
                 </a>
             </p>
-            
-            <ReactPlayer
+
+            {/* <ReactPlayer
                 className='react-player'
                 playing={true}
                 loop
@@ -107,6 +107,17 @@ function DeepNotFound() {
                 playsInline={true} // Ensures proper playback on iOS Safari
                 url='https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4'
                 width='100%'
+            /> */}
+
+            <ReactPlayer
+                className="react-player"
+                playing={true}
+                loop
+                muted
+                playsInline={true}
+                controls={true} // Allows users to manually start the video if autoplay fails
+                url="https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4"
+                width="100%"
             />
 
         </div>
