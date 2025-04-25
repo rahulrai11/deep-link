@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ReactPlayer from "react-player";
 
 function DeepNotFound() {
 
@@ -101,12 +102,39 @@ function DeepNotFound() {
         // setIsApp(false);
     }
     return (
-        <div>
-            <hr />
-            {isApp ? <button onClick={deep}>Go to app store</button> : null}
-            <p>
-                If Bastian is installed, it will open automatically. Otherwise, you'll be redirected to download it shortly.
+        <div style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            textAlign: "center"
+        }}>
+            {/* <hr style={{ width: "50%" }} /> */}
+            {/* <button onClick={deep} style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}>Go to Store for dowanloading</button> */}
+            <a
+                href="#"
+                onClick={(event) => {
+                    event.preventDefault(); // Prevent default navigation
+                    deep(); // Call the function when clicked
+                }}
+                style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer", textDecoration: "underline", color: "blue" }}
+            >
+                Go to Store for Downloading
+            </a>
+
+            <p style={{ marginTop: "10px", fontSize: "18px", width: "80%" }}>
+                Off we go! If Bastian already chilling on your device, we'll take you there. If not, no worries—we'll zip you to the store in a flash!.
             </p>
+
+            <ReactPlayer
+                className='react-player'
+                playing={true}
+                loop
+                muted
+                url='https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4'
+                width='100%'
+            />
         </div>
     );
 }
