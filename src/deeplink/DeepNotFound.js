@@ -3,10 +3,11 @@ import ReactPlayer from "react-player";
 
 function DeepNotFound() {
 
+    const [showMessage, setShowMessage] = useState(false);
+
     useEffect(() => {
         const openApp = () => {
 
-            const [showMessage, setShowMessage] = useState(false);
 
             const path = window.location.pathname;
             const customURL = "myapp://" + path.replace(/^\/+/, ''); // Ensure clean path
@@ -57,15 +58,14 @@ function DeepNotFound() {
                         console.log("App opened successfully, stopping script.");
                     }
                 }, 800); // Increased timeout for better user interaction detection
+            } else {
+                // Set timeout to detect failure
+                fallbackTimeout = setTimeout(() => {
+                    if (!appOpened) {
+                        setShowMessage(true); // App not opened, show message
+                    }
+                }, 800);
             }
-
-            // Set timeout to detect failure
-            fallbackTimeout = setTimeout(() => {
-                if (!appOpened) {
-                    setShowMessage(true); // App not opened, show message
-                }
-            }, 800);
-
         };
 
         openApp();
@@ -91,7 +91,7 @@ function DeepNotFound() {
 
     return (
         <>
-            {showMessage ? <div style={{
+            {showMessage && <div style={{
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
@@ -120,7 +120,7 @@ function DeepNotFound() {
                     url='https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4'
                     width='100%'
                 />
-            </div> : null}
+            </div>}
         </>
 
     );
