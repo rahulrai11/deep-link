@@ -6,6 +6,8 @@ function DeepNotFound() {
     useEffect(() => {
         const openApp = () => {
 
+            const [showMessage, setShowMessage] = useState(false);
+
             const path = window.location.pathname;
             const customURL = "myapp://" + path.replace(/^\/+/, ''); // Ensure clean path
 
@@ -56,6 +58,14 @@ function DeepNotFound() {
                     }
                 }, 800); // Increased timeout for better user interaction detection
             }
+
+            // Set timeout to detect failure
+            fallbackTimeout = setTimeout(() => {
+                if (!appOpened) {
+                    setShowMessage(true); // App not opened, show message
+                }
+            }, 800);
+
         };
 
         openApp();
@@ -76,50 +86,43 @@ function DeepNotFound() {
         } else if (isiOS) {
             window.location.replace(appStoreURL);
         }
+
     }
 
     return (
-        <div style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100vh",
-            textAlign: "center"
-        }}>
-            <p style={{ marginTop: "10px", fontSize: "18px", width: "80%" }}>
-                Off we go! If Bastian’s already chilling on your device, we’ll take you there.
-                If not, <a href="#"
-                    onClick={(event) => {
-                        event.preventDefault(); // Prevent default navigation
-                        deep(); // Call the function when clicked
-                    }}
-                    style={{ textDecoration: "underline", color: "blue" }}>
-                    just hit the store and start your journey
-                </a>
-            </p>
+        <>
+            {showMessage ? <div style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100vh",
+                textAlign: "center"
+            }}>
+                <p style={{ marginTop: "10px", fontSize: "18px", width: "80%" }}>
+                    Off we go! If Bastian’s already chilling on your device, we’ll take you there.
+                    If not, <a href="#"
+                        onClick={(event) => {
+                            event.preventDefault(); // Prevent default navigation
+                            deep(); // Call the function when clicked
+                        }}
+                        style={{ textDecoration: "underline", color: "blue" }}>
+                        just hit the store and start your journey
+                    </a>
+                </p>
 
-            {/* <ReactPlayer
-                className='react-player'
-                playing={true}
-                loop
-                muted
-                playsInline={true} // Ensures proper playback on iOS Safari
-                url='https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4'
-                width='100%'
-            /> */}
+                <ReactPlayer
+                    className='react-player'
+                    playing={true}
+                    loop
+                    muted
+                    playsInline={true} // Ensures proper playback on iOS Safari
+                    url='https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4'
+                    width='100%'
+                />
+            </div> : null}
+        </>
 
-            <ReactPlayer
-                className='react-player'
-                playing={true}
-                loop
-                muted
-                playsInline={true} // Ensures proper playback on iOS Safari
-                url='https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4'
-                width='100%'
-            />
-
-        </div>
     );
 }
 
