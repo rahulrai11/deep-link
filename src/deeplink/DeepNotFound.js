@@ -59,7 +59,7 @@ function DeepNotFound() {
             } else {
                 fallbackTimeout = setTimeout(function () {
                     window.location = fallbackURL;
-                }, 1500); // 1.5s wait is typical
+                }, 5000); // 1.5s wait is typical
             }
         };
 
