@@ -93,7 +93,7 @@ function DeepNotFound() {
             height: "100vh",
             textAlign: "center"
         }}>
-            {/* <p style={{ marginTop: "10px", fontSize: "18px", width: "80%" }}>
+            <p style={{ marginTop: "10px", fontSize: "18px", width: "80%" }}>
                 Off we go! If Bastian’s already chilling on your device, we’ll take you there.
                 If not, <a href="#"
                     onClick={(event) => {
@@ -103,7 +103,7 @@ function DeepNotFound() {
                     style={{ textDecoration: "underline", color: "blue" }}>
                     just hit the store and start your journey
                 </a>
-            </p> */}
+            </p>
 
             <ReactPlayer
                 className='react-player'
