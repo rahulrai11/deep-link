@@ -93,7 +93,7 @@ function DeepNotFound() {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            height: "100%",
+            height: "100vh",
             textAlign: "center",
         }}>
             {/* <p style={{ marginTop: "10px", fontSize: "18px", width: "80%" }}>
