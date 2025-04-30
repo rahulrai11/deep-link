@@ -47,15 +47,16 @@ function Onbording() {
             textAlign: "center"
         }}>
             <p style={{ marginTop: "10px", fontSize: "18px", width: "80%" }}>
-                To view the Bastian Customer Parts Portal, please <a href="#"
+                To view the Bastian Customer Parts Portal, please{" "}
+                <a href="#"
                     onClick={(event) => {
                         event.preventDefault(); // Prevent default navigation
                         reDirectToStore(); // Call the function when clicked
                     }}
                     style={{ textDecoration: "underline", color: "blue" }}>
                     download
-                </a>
-                 the app in the App Store
+                </a>{" "}
+                the app in the App Store.
             </p>
 
             <ReactPlayer
