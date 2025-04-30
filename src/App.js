@@ -29,8 +29,8 @@ function App() {
 
         <HashRouter >
           <Routes>
-            <Route path="/" element={<Onbording />} />
-            <Route path="/app" element={<HTMLPage />} />
+            <Route path="/" element={<HTMLPage />} />
+            <Route path="/app" element={<Onbording />} />
             <Route path="/app/*" element={<DeepNotFound />} />
           </Routes>
         </HashRouter>
