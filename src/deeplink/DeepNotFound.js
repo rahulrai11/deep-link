@@ -11,11 +11,12 @@ function DeepNotFound() {
 
             const playStoreURL = "https://play.google.com/store/apps/details?id=com.bastianqrapp";
             const appStoreURL = "https://apps.apple.com/in/app/bastian-customer-parts-portal/id6473263265";
-            var fallbackURL = "https://rahulrai11.github.io/deep-link/#app/"; // fallback page
+            var fallbackURL = "https://rahulrai11.github.io/deep-link/"; // fallback page
 
             const userAgent = navigator.userAgent;
             const isAndroid = /Android/i.test(userAgent);
-            const isiOS = /iPhone|iPad|iPod/i.test(userAgent);
+            // const isiOS = /iPhone|iPad|iPod/i.test(userAgent);
+            const isiOS = /iPhone|iPad|iPod|Mac/i.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
             let appOpened = false;
             let fallbackTimeout;
@@ -56,7 +57,7 @@ function DeepNotFound() {
                         console.log("App opened successfully, stopping script.");
                     }
                 }, 800); // Increased timeout for better user interaction detection
-            } else {
+            } else if (isiOS) {
                 fallbackTimeout = setTimeout(function () {
                     window.location = fallbackURL;
                 }, 800); // 1.5s wait is typical
