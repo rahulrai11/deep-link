@@ -12,11 +12,11 @@ function HTMLPage() {
             var userAgent = navigator.userAgent || navigator.vendor;
  
             // Open the app using a hidden link
-            // var link = document.createElement('a');
-            // link.href = appScheme;
-            // link.style.display = "none";
-            // document.body.appendChild(link);
-            // link.click();
+            var link = document.createElement('a');
+            link.href = appScheme;
+            link.style.display = "none";
+            document.body.appendChild(link);
+            link.click();
 
             // If app is not installed, redirect after 2 seconds
             setTimeout(function () {
@@ -25,7 +25,6 @@ function HTMLPage() {
                     window.location.href = "intent://play.google.com/store/apps/details?id=com.bastianqrapp#Intent;package=com.android.vending;scheme=https;end;";
                 } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
                     window.location.href = appStoreLink;
-                    alert("call")
                 } else {
                     // window.location.href = playStoreWeb;
                 }
