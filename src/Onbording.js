@@ -54,7 +54,7 @@ function Onbording() {
                         reDirectToStore(); // Call the function when clicked
                     }}
                     style={{ textDecoration: "underline", color: "blue" }}>
-                    download
+                    Download
                 </a>{" "}
                 the app in the App Store.
             </p>
