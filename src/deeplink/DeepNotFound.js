@@ -58,7 +58,7 @@ function DeepNotFound() {
                 }, 800); // Increased timeout for better user interaction detection
             } else {
                 fallbackTimeout = setTimeout(function () {
-                    // window.location = fallbackURL;
+                    window.location = fallbackURL;
                 }, 5000); // 1.5s wait is typical
             }
         };
