@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ReactPlayer from "react-player";
 
 function HTMLPage() {
     const [content, setContent] = useState('');
