@@ -11,7 +11,7 @@ function DeepNotFound() {
 
             const playStoreURL = "https://play.google.com/store/apps/details?id=com.bastianqrapp";
             const appStoreURL = "https://apps.apple.com/in/app/bastian-customer-parts-portal/id6473263265";
-            var fallbackURL = "https://rahulrai11.github.io/deep-link/"; // fallback page
+            var fallbackURL = "https://rahulrai11.github.io/deep-link/app"; // fallback page
 
             const userAgent = navigator.userAgent;
             const isAndroid = /Android/i.test(userAgent);
