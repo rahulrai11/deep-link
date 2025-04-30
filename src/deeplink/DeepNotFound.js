@@ -3,17 +3,15 @@ import ReactPlayer from "react-player";
 
 function DeepNotFound() {
 
-    const [showMessage, setShowMessage] = useState(false);
-
     useEffect(() => {
         const openApp = () => {
-
 
             const path = window.location.pathname;
             const customURL = "myapp://" + path.replace(/^\/+/, ''); // Ensure clean path
 
             const playStoreURL = "https://play.google.com/store/apps/details?id=com.bastianqrapp";
             const appStoreURL = "https://apps.apple.com/in/app/bastian-customer-parts-portal/id6473263265";
+            var fallbackURL = "https://rahulrai11.github.io/deep-link/"; // fallback page
 
             const userAgent = navigator.userAgent;
             const isAndroid = /Android/i.test(userAgent);
@@ -59,12 +57,9 @@ function DeepNotFound() {
                     }
                 }, 800); // Increased timeout for better user interaction detection
             } else {
-                // Set timeout to detect failure
-                fallbackTimeout = setTimeout(() => {
-                    if (!appOpened) {
-                        setShowMessage(true); // App not opened, show message
-                    }
-                }, 800);
+                setTimeout(function () {
+                    window.location = fallbackURL;
+                }, 1500); // 1.5s wait is typical
             }
         };
 
@@ -76,6 +71,7 @@ function DeepNotFound() {
         const playStoreURL = "https://play.google.com/store/apps/details?id=com.bastianqrapp";
         const appStoreURL = "https://apps.apple.com/in/app/bastian-customer-parts-portal/id6473263265";
 
+
         const userAgent = navigator.userAgent;
         const isAndroid = /Android/i.test(userAgent);
         // const isiOS = /iPhone|iPad|iPod/i.test(userAgent);
@@ -86,43 +82,40 @@ function DeepNotFound() {
         } else if (isiOS) {
             window.location.replace(appStoreURL);
         }
-
     }
 
     return (
-        <>
-            {showMessage && <div style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100vh",
-                textAlign: "center"
-            }}>
-                <p style={{ marginTop: "10px", fontSize: "18px", width: "80%" }}>
-                    Off we go! If Bastian’s already chilling on your device, we’ll take you there.
-                    If not, <a href="#"
-                        onClick={(event) => {
-                            event.preventDefault(); // Prevent default navigation
-                            deep(); // Call the function when clicked
-                        }}
-                        style={{ textDecoration: "underline", color: "blue" }}>
-                        just hit the store and start your journey
-                    </a>
-                </p>
+        <div style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            textAlign: "center"
+        }}>
+            <p style={{ marginTop: "10px", fontSize: "18px", width: "80%" }}>
+                Off we go! If Bastian’s already chilling on your device, we’ll take you there.
+                If not, <a href="#"
+                    onClick={(event) => {
+                        event.preventDefault(); // Prevent default navigation
+                        deep(); // Call the function when clicked
+                    }}
+                    style={{ textDecoration: "underline", color: "blue" }}>
+                    just hit the store and start your journey
+                </a>
+            </p>
 
-                <ReactPlayer
-                    className='react-player'
-                    playing={true}
-                    loop
-                    muted
-                    playsInline={true} // Ensures proper playback on iOS Safari
-                    url='https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4'
-                    width='100%'
-                />
-            </div>}
-        </>
+            <ReactPlayer
+                className='react-player'
+                playing={true}
+                loop
+                muted
+                playsInline={true} // Ensures proper playback on iOS Safari
+                url='https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4'
+                width='100%'
+            />
 
+        </div>
     );
 }
 
