@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ReactPlayer from "react-player";
 
 function Onbording() {
     const [content, setContent] = useState('');
