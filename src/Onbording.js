@@ -19,7 +19,7 @@ function Onbording() {
                     window.location.href = "intent://play.google.com/store/apps/details?id=com.bastianqrapp#Intent;package=com.android.vending;scheme=https;end;";
                 } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
                     window.location.href = appStoreLink;
-                    alert("call")
+                    // alert("call")
                 } else {
                     // window.location.href = playStoreWeb;
                 }
