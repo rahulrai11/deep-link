@@ -93,7 +93,7 @@ function DeepNotFound() {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            height: "100vh",
+            height: "100%",
             textAlign: "center",
         }}>
             {/* <p style={{ marginTop: "10px", fontSize: "18px", width: "80%" }}>
@@ -113,7 +113,6 @@ function DeepNotFound() {
                 playing={true}
                 loop
                 muted
-                playsInline={true} // Ensures proper playback on iOS Safari
                 url='https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4'
                 width='100%'
             />
