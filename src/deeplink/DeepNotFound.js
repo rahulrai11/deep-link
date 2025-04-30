@@ -92,7 +92,7 @@ function DeepNotFound() {
             alignItems: "center",
             height: "100vh",
             textAlign: "center",
-            marginTop: 80,
+            // marginTop: 80,
         }}>
             {/* <p style={{ marginTop: "10px", fontSize: "18px", width: "80%" }}>
                 Off we go! If Bastian’s already chilling on your device, we’ll take you there.
