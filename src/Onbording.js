@@ -35,7 +35,7 @@ function Onbording() {
                 playing={true}
                 loop
                 muted
-                playsInline={true} // Ensures proper playback on iOS Safari
+                // playsInline={true} // Ensures proper playback on iOS Safari
                 url='https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4'
                 width='100%'
             />
