@@ -11,7 +11,7 @@ function DeepNotFound() {
 
             const playStoreURL = "https://play.google.com/store/apps/details?id=com.bastianqrapp";
             const appStoreURL = "https://apps.apple.com/in/app/bastian-customer-parts-portal/id6473263265";
-            var fallbackURL = "https://rahulrai11.github.io/deep-link/"; // fallback page
+            var fallbackURL = "https://rahulrai11.github.io/deep-link/#app"; // fallback page
 
             const userAgent = navigator.userAgent;
             const isAndroid = /Android/i.test(userAgent);
@@ -57,7 +57,7 @@ function DeepNotFound() {
                     }
                 }, 800); // Increased timeout for better user interaction detection
             } else {
-                setTimeout(function () {
+                fallbackTimeout = setTimeout(function () {
                     window.location = fallbackURL;
                 }, 800); // 1.5s wait is typical
             }
@@ -93,7 +93,7 @@ function DeepNotFound() {
             height: "100vh",
             textAlign: "center"
         }}>
-            <p style={{ marginTop: "10px", fontSize: "18px", width: "80%" }}>
+            {/* <p style={{ marginTop: "10px", fontSize: "18px", width: "80%" }}>
                 Off we go! If Bastian’s already chilling on your device, we’ll take you there.
                 If not, <a href="#"
                     onClick={(event) => {
@@ -113,7 +113,7 @@ function DeepNotFound() {
                 playsInline={true} // Ensures proper playback on iOS Safari
                 url='https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4'
                 width='100%'
-            />
+            /> */}
 
         </div>
     );
