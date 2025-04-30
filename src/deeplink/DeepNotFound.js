@@ -103,7 +103,7 @@ function DeepNotFound() {
                     style={{ textDecoration: "underline", color: "blue" }}>
                     just hit the store and start your journey
                 </a>
-            </p>
+            </p> */}
 
             <ReactPlayer
                 className='react-player'
@@ -113,7 +113,7 @@ function DeepNotFound() {
                 playsInline={true} // Ensures proper playback on iOS Safari
                 url='https://qrcodeblobstorage.blob.core.windows.net/qrcodecontainer/bastians/bastian.mp4'
                 width='100%'
-            /> */}
+            />
 
         </div>
     );
